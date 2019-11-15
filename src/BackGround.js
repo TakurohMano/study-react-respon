@@ -4,7 +4,10 @@ import LogoImage from './resource/logo.png'
 import { ResponsiveContainer, ComposedChart, Line, Bar, Area, Scatter, XAxis,
   YAxis, ReferenceLine, ReferenceDot, Tooltip, Legend, CartesianGrid, Brush,
   LineChart } from 'recharts';
+import EnhancedTable from './table';
+
 document.body.style.backgroundColor = "#FFd711";
+
 export default class BackGround extends Component {
 
     constructor(props) {
@@ -112,7 +115,10 @@ export default class BackGround extends Component {
             fontWeight: "bold",
             color: "#FFa711",
             borderBottom: "medium dotted",
-          }
+          },
+          composed_chart: {
+
+          },
 
         };
       }
@@ -151,10 +157,12 @@ export default class BackGround extends Component {
                       Q1 : hogehoge
                     </Box>
                     <ComposedChart //グラフ全体のサイズや位置、データを指定。場合によってmarginで上下左右の位置を指定する必要あり。
-                      width={600}  //グラフ全体の幅を指定
-                      height={280}  //グラフ全体の高さを指定
+                      width={400}  //グラフ全体の幅を指定
+                      height={400}  //グラフ全体の高さを指定
                       data={dataGraph} //ここにArray型のデータを指定
                       margin={{ top: 20, right: 60, bottom: 0, left: 0 }}  //marginを指定
+                      compact={false}
+                      style={{float: "left"}}
                     >
                       <XAxis
                         dataKey="month"  //Array型のデータの、X軸に表示したい値のキーを指定
@@ -180,6 +188,7 @@ export default class BackGround extends Component {
                         fill="#2250A2" ////レーダーの中身の色を指定
                       />
                     </ComposedChart>
+                    <EnhancedTable></EnhancedTable>
                   </Box>
                 </Box>
               </Box>
